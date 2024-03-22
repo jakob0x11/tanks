@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player/assets/tank_blue.png" type="Texture" id=1]
+[ext_resource path="res://player/Player.cs" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Player" type="Area2D"]
+position = Vector2( 487, 306 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1.9, 2 )
+shape = SubResource( 2 )
+
+[node name="ControllerContainer" type="Node" parent="."]
+
+[node name="MovementDelayTimer" type="Timer" parent="."]
+wait_time = 0.25
