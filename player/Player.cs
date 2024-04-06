@@ -5,6 +5,7 @@ public class Player : Area2D {
     // nodes loaded from the scene
     private Node _controllerContainer;
     private Timer _movementTimer;
+    public TextEdit editor;
     // rest of local vars
     private Node controller;
     private bool hasMoved; 
@@ -12,6 +13,8 @@ public class Player : Area2D {
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
+        editor = GetNode<TextEdit>("../TextEdit");
+
         _controllerContainer = GetNode<Node>("ControllerContainer");
         SetController(new TankController(this));
         _movementTimer = GetNode<Timer>("MovementDelayTimer");

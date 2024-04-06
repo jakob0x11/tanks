@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://editor/Editor.gd" type="Script" id=1]
+
+[node name="TextEdit" type="TextEdit"]
+rect_min_size = Vector2( 100, 100 )
+text = "Hello World!"
+script = ExtResource( 1 )
+
+[connection signal="text_changed" from="." to="." method="_on_TextEdit_text_changed"]
